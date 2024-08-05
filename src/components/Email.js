@@ -4,7 +4,7 @@ import './email.css'
 const Email=()=>{
     return(
         <>
-        <label>To:</label>
+        <label>To::</label>
         <input className="to">
 
         </input>
