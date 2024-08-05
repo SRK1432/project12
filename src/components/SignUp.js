@@ -67,7 +67,7 @@ const SignUp = () => {
                 placeholder="Confirm Password"
                 onChange={(e) => setConfPassword(e.target.value)}
             />
-            <button type="submit">Sign Up</button>
+            <button type="submit" onClick={()=>navigate('/login')}>Sign Up</button>
         </form>
     );
 };

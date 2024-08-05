@@ -41,7 +41,7 @@ const Login = () => {
       .then((data) => {
         console.log('Logged in successfully:', data);
         setLoading(false);
-        navigate('/welcome');
+        navigate('/email');
       })
       .catch((error) => {
         setError(error.message);
