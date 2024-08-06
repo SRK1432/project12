@@ -64,7 +64,7 @@ const Email = () => {
 
             <hr />
 
-            <button type="submit">Send</button>
+            <button className="button" type="submit">Send</button>
         </form>
     );
 };
