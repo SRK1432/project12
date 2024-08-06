@@ -18,7 +18,7 @@ const SignUp = () => {
         } else if (password !== confPassword) {
             alert('Password and Confirm Password must be the same');
         } else {
-            fetch('https://react-http-a0270-default-rtdb.firebaseio.com/LoginData.json', {
+            fetch('https://mail-box-a25f0-default-rtdb.firebaseio.com/LoginData.json', {
                 method: 'POST',
                 body: JSON.stringify(newUser),
                 headers: {

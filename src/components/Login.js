@@ -15,7 +15,7 @@ const Login = () => {
     setError(null);
     setLoading(true);
 
-    fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBWzmP1mDV0IYFqZ9kSV67TmRB3RoqdMgE', {
+    fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCzrDcSDr4GfLgemiEPksZwA1QSwlmWbls', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

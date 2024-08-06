@@ -1,0 +1,53 @@
+.email-viewer {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .email-viewer h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .compose-button {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .compose-button:hover {
+    background-color: #45a049;
+  }
+  
+  .email-list {
+    margin-top: 20px;
+  }
+  
+  .email-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+  
+  .email-item h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .email-item p {
+    margin: 5px 0;
+  }
+  
+  .email-content {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
