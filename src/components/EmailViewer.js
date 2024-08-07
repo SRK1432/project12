@@ -29,6 +29,15 @@ const EmailViewer=()=> {
       Unread: false,
       body: "This is the body of the email"
     },
+    {
+      id: 4,
+      sender: "Ram",
+      subject: "Aplie",
+      time: "6:50PM",
+      Unread: true,
+      body: "This is the body of the email"
+    },
+
   ]);
 
   const [selectedMail, setSelectedMail] = useState(null);
@@ -43,6 +52,10 @@ const EmailViewer=()=> {
     });
     setMails(updatedMails);
   };
+  const deleteMailHandler =(mail,e) =>{
+    e.stopPropagation(); //used to prevent the onClick event of the mail item itself from being triggered when you click "Delete." This ensures that only the deletion logic is executed when clicking the button.
+    setMails(mails.filter(m=>m.id !== mail.id))
+  }
 
   return (
     <>
@@ -75,7 +88,9 @@ const EmailViewer=()=> {
             <div className="mail-time">{mail.time}</div>
             {selectedMail === mail && (
               <div className="mail-body">{mail.body}</div>
+              
             )}
+            <button onClick={(e)=>deleteMailHandler(mail,e)}>Delete</button>
           </div>
         ))}
       </div>
