@@ -1,53 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './EmailViewer.css';
 import { useNavigate } from "react-router-dom";
 
 const EmailViewer = () => {
   const navigate = useNavigate();
-  const [mails, setMails] = useState([
-    {
-      id: 1,
-      sender: "kapse",
-      subject: "spliteWise",
-      time: "8:00AM",
-      Unread: true,
-      body: "This is the body of the email",
-    },
-    {
-      id: 2,
-      sender: "Ronny",
-      subject: "Ecommerce",
-      time: "8:00AM",
-      Unread: true,
-      body: "This is the body of the email",
-    },
-    {
-      id: 3,
-      sender: "Sam",
-      subject: "splie",
-      time: "6:00AM",
-      Unread: false,
-      body: "This is the body of the email",
-    },
-    {
-      id: 4,
-      sender: "Ram",
-      subject: "Aplie",
-      time: "6:50PM",
-      Unread: true,
-      body: "This is the body of the email",
-    },
-  ]);
-
-  const [sentMails, setSentMails] = useState([
-    { id: 5,sender: "You",   subject: "Meeting Agenda", time: "9:00AM", Unread: false, body: "This is the body of the sent email", },
-    { id: 6, sender: "You",  subject: "Project Update", time: "10:30AM", Unread: false, body: "This is the body of the sent email", },
-    { id: 7, sender: "You",  subject: "Project ", time: "1:30AM", Unread: false, body: "This is the body of the sent email", },
-
-  ]);
-
+  const [mails, setMails] = useState([]);
+  const [sentMails, setSentMails] = useState([]);
   const [selectedMail, setSelectedMail] = useState(null);
   const [viewSent, setViewSent] = useState(false);
+
+  useEffect(() => {
+    const fetchMails = async () => {
+      // Call Firebase API to fetch mails
+      const response = await fetch('https://mail-box-a25f0-default-rtdb.firebaseio.com/mails');
+      const data = await response.json();
+      setMails(data);
+    };
+    fetchMails();
+    const intervalId = setInterval(fetchMails, 20000);
+    return () => clearInterval(intervalId);
+  }, []);
+
+  useEffect(() => {
+    const fetchSentMails = async () => {
+      // Call Firebase API to fetch sent mails
+      const response = await fetch('https://mail-box-a25f0-default-rtdb.firebaseio.com/sentMails');
+      const data = await response.json();
+      setSentMails(data);
+    };
+    fetchSentMails();
+    const intervalId = setInterval(fetchSentMails, 20000);
+    return () => clearInterval(intervalId);
+  }, []);
 
   const handleMailClick = (mail) => {
     setSelectedMail(mail);
